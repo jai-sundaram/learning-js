@@ -114,3 +114,11 @@ console.log(rez);
 //for mathematical operations, the order is same as pemdas
 let n = 5 + 5 *4
 console.log(n);
+
+
+
+//returning the greatest num
+function maxNum(num1, num2){
+    return num1> num2 ? num1:num2;
+}
+console.log(maxNum(2,1));

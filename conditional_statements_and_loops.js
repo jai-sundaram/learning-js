@@ -129,9 +129,33 @@ let obk = {
     c: 3
 }
 //final exampls 
+console.log('final example');
 for(const key in obk){
     if(key == 'b'){
         continue;
     }
     console.log(obk[key]);
 }
+
+function fizzbuzz(num){
+    if(num %3 == 0 && num %5 == 0){
+        return 'fizzbuzz';
+    }
+    else if(num %3 == 0){
+        return 'fizz';
+    }
+    else if (num%5 == 0){
+        return 'buzz';
+    }
+    else{
+        return num;
+    }}
+    function printEvens(arr){
+        for(let element of arr){
+            if(element % 2 == 1){
+                continue;
+            }
+            console.log(element);
+        }
+    }
+    printEvens([1,2,3,4,5,6,7,8,9])
