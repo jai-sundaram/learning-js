@@ -83,7 +83,7 @@ return num1+num2}; */
 //just another way of writing it - cleaner but more confusing imo
 
 //removing elements from the array
-const numbers3 = [1,2,3,4,5];
+let numbers3 = [1,2,3,4,5];
 //.pop to remove from the end, .splice to remove from the middle, .shift to remove from the end
 const lastElement = numbers3.pop();
 console.log(lastElement);
@@ -98,3 +98,36 @@ console.log(`first element: ${numbers3.shift()}\n`);
 //so in this case, deleting the value at index = 1
 const middleElement = numbers3.splice(1,1);
 console.log(middleElement);
+
+//emptying/clearing an array
+//setting the length of the array to 0 will automatically clear it out 
+//numbers.length = 0;
+
+//can also use the splice method 
+//numbers3.splice(0, numbers3.length);
+
+//can simply assign it to a new empty array
+//previous array will be garbage collected 
+numbers3 = [];
+
+//combining and slicing arrays
+const exampleNumbersA = [1,2,3];
+const exampleNumbersB = [4,5,6];
+//can use the concat method to combine the two arrays 
+const combinedArray = exampleNumbersA.concat(exampleNumbersB);
+console.log(combinedArray);
+
+//can also slice the array
+//first argument is the start index, second argument is last index 
+//it will not affect the existing array 
+const firstSlice = combinedArray.slice(0,4);
+//the second argument is exclusive, so the last item will be the one in the index before it 
+
+//spread operator - another way to combine arrays 
+//this is the more common way of combining arrays 
+//furthermore, it allows us to add other elements
+let combined = [...exampleNumbersA, 9, ...exampleNumbersB, 10];
+
+//similairly to objects, we can use the spread operator to create copies of arrayys 
+let exampleArrayC = [1,2];
+let exampleArrayD = [...exampleArrayC];
