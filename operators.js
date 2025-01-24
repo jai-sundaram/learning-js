@@ -91,3 +91,26 @@ let res = z ?? false;
 //set value of res to value of z, otherwise set it to false
 //this is basically the shortened version of 
 res = (z!= null && z!= undefined) ? a:false;
+
+//logical operator with non boolean values 
+//in javascript, the results of a logical operator is not necessarily true or false
+//it looks at the operand and if it isn't a boolean value it will then try to interpret as truthy or falsy 
+//in javascript, falsy encompasses the following:and undefined, null, 0, false, '', NaN
+//javascript evaluates expressions left to right, and completes short circuit evaluation
+//once it can sucessfully evaluate the result, it will stop the operation
+let userChosenColor = 'blue';
+let defaultColor = 'green';
+
+const currentWebsiteColor = userChosenColor || defaultColor;
+console.log(currentWebsiteColor);
+//since js considered both strings to be truthy, it immediately stops after reaching 'blue', which is a string and therefore is a certain result
+//it then prints out that result
+
+let nm = 'test';
+rez = false || nm;
+console.log(rez);
+
+//operator precedence 
+//for mathematical operations, the order is same as pemdas
+let n = 5 + 5 *4
+console.log(n);
