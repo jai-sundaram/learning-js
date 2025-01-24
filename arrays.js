@@ -81,3 +81,20 @@ function add(num1, num2){
 return num1+num2}; */
 ///the result is being saved to the add variable     
 //just another way of writing it - cleaner but more confusing imo
+
+//removing elements from the array
+const numbers3 = [1,2,3,4,5];
+//.pop to remove from the end, .splice to remove from the middle, .shift to remove from the end
+const lastElement = numbers3.pop();
+console.log(lastElement);
+console.log(numbers3);
+
+//removing the first element
+console.log(`first element: ${numbers3.shift()}\n`);
+// \n creates a new line 
+
+//remember splice can be used to add to the middle of an array, or remove from the middle of an array
+//first argument is the index to start at, second argument is the number of elements to delete starting at the index specified, and argument after that is optional and it will specify the new values to add 
+//so in this case, deleting the value at index = 1
+const middleElement = numbers3.splice(1,1);
+console.log(middleElement);
