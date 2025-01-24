@@ -131,3 +131,83 @@ let combined = [...exampleNumbersA, 9, ...exampleNumbersB, 10];
 //similairly to objects, we can use the spread operator to create copies of arrayys 
 let exampleArrayC = [1,2];
 let exampleArrayD = [...exampleArrayC];
+
+
+//iterating over an array 
+const numbers4 = [1,2,3,4];
+for (let number of numbers){
+    console.log(number);
+}
+
+///can streamline doing this by using the for each method and utillizing the arrow functions 
+//number is that current element (in this case number)
+//we can also include the index{
+numbers4.forEach((number, index) => {
+    console.log(`At ${index}: ${number}`);
+}); 
+//fyi: it is possible to clean up this for loop even more, but i feel like it is more readable in this format 
+
+
+//to transform an array into a string, use the join method 
+const numbers5 = [1,2,3,4];
+//we need to pass in a seperator in as a parameter, the seperator is basically the thing that will be between each element when in string form
+//in this case it will be a comma
+const joinedNumbers = numbers5.join(', ');
+console.log(joinedNumbers);
+
+//can also do the opposite, split a string into a array
+const courseName = 'Javascript for beginners';
+//again passing in a seperator as a parameter, in this case
+//the string will be split everytime there is a space
+const parts = courseName.split(' ');
+//javascript will be at 0th index, for will be in 1st index, beginners will be in 2nd index 
+console.log(parts);
+//can put it back together
+let urlSlug = parts.join('-');
+//also can make it completely lowercase
+urlSlug = urlSlug.toLowerCase();
+console.log(urlSlug);
+
+//sorting arrays
+//js arrays come in with a built in sort method 
+//by default, it sorts the array in ascending order 
+let characters = ['c','d','b','a'];
+characters.sort();
+console.log(characters);
+characters.reverse();
+console.log(characters);
+//can also reverse the elements using the reverse method
+//putting it in reverse order 
+
+//however, when u are dealing with objects, u need to provide a callback function that defines the logic for the sorting/reversing
+let employees2 = [
+    {eId: 1, eName: 'Jen'},
+    {eId: 2, eName: 'Steven'},
+    {eId: 3, eName: 'Andrew'},
+    {eId: 4, eName: 'Terry'},
+
+];
+//lets say we want to sort it by name 
+//need to pass into parameters, which represents two elements
+//in this case, two objects being compared
+employees2.sort((a,b)=>{
+    //comparing objects based on one of the properties 
+    //in this case, the name property
+    //the callback function returns a number that determines the sort order
+    //returning a negative value means that the first argument comes before the second argument 
+    //returning 0 means that they are considered equal, and are in sorted order 
+    //returning a positive value means that the first argument comes after the second 
+    //going to convert everything to lowercase to avoid case senstivity
+    const lowerCaseA = a.eName.toLowerCase();
+    const lowerCaseB = b.eName.toLowerCase();
+    if(lowerCaseA < lowerCaseB){
+        return -1;
+    }
+    else if(lowerCaseA > lowerCaseB){
+        return 1;
+    }
+    else{
+        return 0;
+    }
+});
+console.log(employees2);
