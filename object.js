@@ -178,3 +178,6 @@ let m = {...k};
 k.value = 8;
 console.log(m);
 console.log(k);
+
+//dont have to manually delocatting memory for unused objects 
+//javascript automatically does it using garbage collection
