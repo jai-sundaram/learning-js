@@ -20,3 +20,17 @@ else if(hour > 12 && hour <=14){
 else{
     console.log('serving dinner');
 }
+//if you find yourself having a long chain of if and if else statements, it might good idea to use switch case statements 
+let job = 'Cloud Engineer'; 
+switch(job){
+    case 'Software Developer':
+        console.log('Writes code');
+        break;
+    case 'Designer':
+        console.log('Makes user interface Documents')
+    case 'Cloud Engineer':
+        console.log('Manages and deploys cloud resources');
+        break;
+    default:
+        console.log('Works directly with customers');
+}
