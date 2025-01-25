@@ -211,3 +211,147 @@ employees2.sort((a,b)=>{
     }
 });
 console.log(employees2);
+
+//testing elements in arrays 
+//the .every() and .some() methods are used to test elements in an array against some condition 
+//.every() tests if all the elements in the array pass the test implemented by the function, return true if it does, false otherwise
+//lets check if every number in an array is even 
+const numbers6 = [2,4,6,8,10];
+//accepts a callback function
+//first parameter is the current element of the array
+//second parameter is the index of where the element is stored
+//3rd parameter is the array where the element is stored
+//only the first parameter is mandatory
+//making sure the remainder when dividing by 2 is 0 - this means that the number is even 
+const areAllEven = numbers6.every(number => {
+    return number % 2 == 0;
+});
+console.log(`areAllEven: ${areAllEven}`);
+
+//the .some() method checks if atleast one element array passes the test implemented by the provided function
+//returns true as soon as one elemen satisfies the provided function
+const numbers7 = [1,2,3,4,7,9];
+//same parameters as every, only the first parameter is mandatory (the element)
+const hasOneEvenNumber = numbers.some(number => {
+    return number % 2 == 0;
+});
+console.log(`hasOneEvenNumber: ${hasOneEvenNumber}`);
+
+//filtering an array
+//the filter method is designed to extract elements that meet a certain condition, creating a new array comprised of only those elements
+;let numbers8 = [1,2,3,4,5,6];
+//filtering the array so that we only have even numbers 
+//the method accepts a callback function
+//for each element in the original array, the filter method calls this callback function
+//if the function returns true for an element, that element is included in the new array returned by the filter method 
+const evenNumbers = numbers8.filter(number =>{
+    return number % 2 == 0;
+});
+console.log(evenNumbers);
+
+//looking at a more complex example of an array of objects 
+const employees3 = [
+    {
+        theId: 1,
+        theName: 'alice',
+        role: 'developer',
+    },
+    {
+        theId: 2,
+        theName: 'bob',
+        role: 'designer',
+    },
+    {
+        theId: 3,
+        theName: 'charlie',
+        role: 'developer',
+    },
+    {
+        theId: 4,
+        theName: 'danielle',
+        role: 'manager',
+    }
+];
+const developers = employees3.filter((employee) =>
+{
+    return employee.role == 'developer';
+}
+
+);
+console.log(developers);
+
+//the .map method
+//cornerstone of array manipulation in javascript
+//operates on each element of an array, applying a function you specify, and returns a new array composed of the results
+//doesnt alter the original array 
+//example: squaring each number in an array of numbers 
+const numbers9 = [2,4,6,8,10]
+constSquaredNumbers = numbers9.map((number) =>
+{
+    return number * number; 
+}
+);
+console.log(constSquaredNumbers);
+//it works with any data type
+//for example, converting an array of characters to uppercase
+const characters2 = ['a', 'b','c','d'];
+const upperCaseCharacters = characters2.map((char) =>{
+    return char.toUpperCase();
+});
+console.log(upperCaseCharacters);
+
+//we will have alist of employees, and we want to normalize their email addresses to lowercase
+const employees4 = [
+    {aName: 'Alice',
+     aEmail: 'AliCe@gmail.com'
+    },
+    {aName: 'Steven',
+        aEmail: 'StEven@gmail.com'
+       },
+       {aName: 'Joe',
+        aEmail: 'jOe@gmail.com'
+       }   
+];
+const updatedEmployees = employees4.map(employee =>(
+{
+    //curly brace is for the object literal we will be returnig 
+    //using the spread operator to copy over all the properties into the new object we are returning 
+    ...employee,
+    aEmail: employee.aEmail.toLowerCase()
+
+}
+)
+);
+//.map iterates over each employee object, creating a new employee object that preserves the original property while transforming the email property to lowercase
+//the spread operator ensures that we aren't modifying the original objects 
+console.log(updatedEmployees);
+
+//reducing an array
+//the reduce method can transform an array into a single number, string, object, or even another array 
+//lets say we have an array of numbers and we want to calculate their sum 
+//traditional way of doing it 
+numbers10 = [1,10,5,14];
+let sum = 0;
+for(const num in numbers10){
+    sum += num;
+}
+
+//there is a cleaner way to acheive the same result using the reduce method
+//the reduce method iterates through each element in the array, applying the function you define and accumulates the result into a single value 
+//using the reduce method to sum an array of numbers 
+//specify two parameters - the accumulator, and the currentValue
+//the first parameter for reduce was the callback function, second optional parameter was the is the initial value
+const sum2 = numbers10.reduce((accumulator, currentValue) =>
+{
+    //we want to return the accumulator + the current value
+    //the accumulator is the accumulated result of the previous function calls 
+    return accumulator + currentValue;
+}
+
+, 0)
+//once the reduce method repeats the process for each element, it returns the final result 
+console.log(sum2);
+;
+
+//THE STUFF IN THE PURPLE BRACKETS IS BASICALLY THE PARAMETERS OF THE CALLBACK FUNCTION
+
