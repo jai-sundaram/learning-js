@@ -143,4 +143,64 @@
     course2.details = 'javascript pro is 10 hours'
     console.log(course2.details);
 
-    //slightly different from getter and setters in java 
+    //slightly different from getter and setters in java   
+    //getters allow to use a method as though it were a property 
+
+
+    //try catch blocks 
+    const course3 = {
+        name: 'JS for beginners',
+        duration: '3 hours',
+
+        get details()
+        {
+          return `${this.name} is ${this.duration}`;
+        },
+
+        set details(value){
+            //lets say someone passes in a non string value for some reason
+            //what we could do is throw an error 
+            if(typeof value != 'string'){
+                throw new Error('not a string');
+            }
+            let parts = value.split(' is ');
+            this.name = parts[0];
+            this.duration = parts[1];
+        }};
+
+        //trying a try catch block
+        try{
+            course.details = 52;
+        } catch(e){
+            console.log(`caught an error: ${e.message   }`);
+        }
+
+
+        //local vs global scope
+        //a variable declared outside any block, condition, or function is acessible from anywhere 
+
+        //the this keyword 
+        const course4 = {
+            theName: 'JS for beginners',
+            start(){
+                console.log(this.name);
+            }
+        }
+
+        //in a regular function, the this keyword references the regular object
+        // in browsers its the window object
+        //in node.js its the global object
+
+        //in the arrow function, it inherits the this object from the global scope 
+
+        //can explicitly set the value of this using .bind
+
+            function introducee(language){
+                console.log(this.name+ 'teaches' + language);
+        }
+        const instructor2 = {
+            name: 'steven'
+        }
+        //binding the method to the object instructur
+        const introduction2= introducee.bind(instructor2);
+        introduction2('js');
